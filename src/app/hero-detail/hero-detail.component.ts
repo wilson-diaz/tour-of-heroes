@@ -12,7 +12,7 @@ import { HeroService }  from '../hero.service';
 })
 export class HeroDetailComponent implements OnInit {
 
-  @Input() hero: Hero;
+  hero: Hero;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +29,10 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.getHero(id).subscribe(hero => {
       this.hero = hero
     });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
